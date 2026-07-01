@@ -1,25 +1,32 @@
-import { Button } from "@/components/ui/button";
-import { Loader2 } from "lucide-react";
-import { Streamdown } from 'streamdown';
-
-/**
- * All content in this page are only for example, replace with your own feature implementation
- * When building pages, remember your instructions in Frontend Best Practices, Design Guide and Common Pitfalls
+/*
+ * HOME PAGE — Aura Dusk Portfolio
+ * Ensambla todas las secciones del portafolio
+ * Tema: Neofuturista Premium — Lucario Blue + Cinderace White + Gold Accents
  */
-export default function Home() {
-  // If theme is switchable in App.tsx, we can implement theme toggling like this:
-  // const { theme, toggleTheme } = useTheme();
+import Navbar from "@/components/Navbar";
+import HeroSection from "@/components/sections/HeroSection";
+import AboutSection from "@/components/sections/AboutSection";
+import SkillsSection from "@/components/sections/SkillsSection";
+import ProjectsSection from "@/components/sections/ProjectsSection";
+import PhilosophySection from "@/components/sections/PhilosophySection";
+import HobbiesSection from "@/components/sections/HobbiesSection";
+import ContactSection from "@/components/sections/ContactSection";
+import Footer from "@/components/Footer";
 
+export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen bg-[#0a0e1a] text-white overflow-x-hidden">
+      <Navbar />
       <main>
-        {/* Example: lucide-react for icons */}
-        <Loader2 className="animate-spin" />
-        Example Page
-        {/* Example: Streamdown for markdown rendering */}
-        <Streamdown>Any **markdown** content</Streamdown>
-        <Button variant="default">Example Button</Button>
+        <HeroSection />
+        <AboutSection />
+        <SkillsSection />
+        <ProjectsSection />
+        <PhilosophySection />
+        <HobbiesSection />
+        <ContactSection />
       </main>
+      <Footer />
     </div>
   );
 }
