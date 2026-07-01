@@ -6,18 +6,18 @@ import { useEffect, useRef } from "react";
 
 const hobbies = [
   {
-    icon: "🎮",
-    title: "Videojuegos",
-    desc: "Explorar mundos virtuales y aprender de la narrativa interactiva.",
+    icon: "🎬",
+    title: "Anime & Películas",
+    desc: "Disfrutar de historias épicas, personajes memorables y cinematografía increíble.",
     color: "#3b82f6",
     glow: "rgba(59, 130, 246, 0.3)",
   },
   {
-    icon: "🎵",
-    title: "Música",
-    desc: "La música es mi compañera de código. Ritmo y concentración.",
-    color: "#8b5cf6",
-    glow: "rgba(139, 92, 246, 0.3)",
+    icon: "🚴",
+    title: "Montar Bicicleta",
+    desc: "Explorar nuevas rutas, disfrutar del aire libre y mantenerme activo.",
+    color: "#10b981",
+    glow: "rgba(16, 185, 129, 0.3)",
   },
   {
     icon: "📖",
@@ -30,8 +30,8 @@ const hobbies = [
     icon: "💻",
     title: "Tecnología",
     desc: "Explorar gadgets, tendencias tech y el futuro digital.",
-    color: "#10b981",
-    glow: "rgba(16, 185, 129, 0.3)",
+    color: "#8b5cf6",
+    glow: "rgba(139, 92, 246, 0.3)",
   },
 ];
 

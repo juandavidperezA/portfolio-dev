@@ -97,7 +97,7 @@ export default function HeroSection() {
             >
               <span className="text-white/60 text-2xl sm:text-3xl font-medium block mb-1">Hola, soy</span>
               <span className="gradient-text-mixed text-glow-blue block">
-                Tu Nombre
+                Juan David
               </span>
             </h1>
 
