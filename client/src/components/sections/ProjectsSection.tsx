@@ -3,43 +3,47 @@ import { useEffect, useRef } from "react";
 const projects = [
   {
     id: 1,
-    name: "CineColombia Platform",
-    desc: "Proyecto académico de interfaz web enfocado en practicar estructura, estilos y comportamiento interactivo con tecnologías frontend.",
-    techs: ["HTML", "CSS", "JavaScript"],
-    icon: "🎬",
-    status: "Proyecto académico",
+    name: "Actividad n8n",
+    desc: "Proyecto de automatización desarrollado con n8n para practicar flujos de trabajo, integración de servicios y lógica de procesos.",
+    techs: ["n8n", "Automatización", "APIs"],
+    icon: "⚙️",
+    status: "Automatización",
     featured: true,
     color: "#f97316",
+    code: "https://github.com/juandavidperezA/actividad_n8n",
   },
   {
     id: 2,
-    name: "Sistema de autenticación",
-    desc: "Práctica de desarrollo web orientada a formularios, validación de datos y conceptos básicos de autenticación.",
-    techs: ["HTML", "CSS", "JavaScript", "Node.js"],
-    icon: "🔐",
-    status: "En aprendizaje",
+    name: "Cine Colombia",
+    desc: "Proyecto web inspirado en una plataforma de cine, creado para fortalecer maquetación, estilos, interacción y organización del frontend.",
+    techs: ["HTML", "CSS", "JavaScript"],
+    icon: "🎬",
+    status: "Frontend",
     featured: false,
     color: "#3b82f6",
+    code: "https://github.com/juandavidperezA/cinecolombiapropio",
   },
   {
     id: 3,
-    name: "Pokémon ExamPro",
-    desc: "Aplicación web interactiva temática Pokémon creada como práctica de interfaces, lógica con JavaScript y diseño responsive.",
+    name: "Proyecto Final JavaScript",
+    desc: "Proyecto final enfocado en aplicar lógica con JavaScript, manipulación del DOM, eventos y construcción de una experiencia web interactiva.",
     techs: ["HTML", "CSS", "JavaScript"],
-    icon: "⚡",
-    status: "Proyecto académico",
+    icon: "🟨",
+    status: "JavaScript",
     featured: false,
     color: "#fbbf24",
+    code: "https://github.com/juandavidperezA/proyectofinaljs",
   },
   {
     id: 4,
-    name: "Prácticas de desarrollo web",
-    desc: "Colección de ejercicios y proyectos con los que continúo fortaleciendo mis conocimientos de frontend, backend y bases de datos.",
-    techs: ["HTML", "CSS", "JavaScript", "MySQL"],
-    icon: "💻",
-    status: "En construcción",
+    name: "PokeAPI",
+    desc: "Proyecto de consumo de API temática Pokémon para practicar peticiones, manejo de datos y renderizado dinámico en una interfaz web.",
+    techs: ["JavaScript", "API", "HTML", "CSS"],
+    icon: "⚡",
+    status: "Consumo de API",
     featured: false,
     color: "#8b5cf6",
+    code: "https://github.com/juandavidperezA/apipoke",
   },
 ];
 
@@ -80,7 +84,7 @@ export default function ProjectsSection() {
           </h2>
           <div className="section-divider" />
           <p className="text-white/40 text-sm mt-4 max-w-md mx-auto" style={{ fontFamily: "'Inter', sans-serif" }}>
-            Proyectos y prácticas que reflejan mi proceso de aprendizaje como desarrollador.
+            Algunos proyectos reales disponibles en mi perfil de GitHub.
           </p>
         </div>
 
@@ -115,29 +119,17 @@ export default function ProjectsSection() {
                     {project.techs.map((tech) => <span key={tech} className="tech-tag">{tech}</span>)}
                   </div>
                   <a
-                    href="https://github.com/juandavidperezA"
+                    href={project.code}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="block w-full text-center py-2.5 rounded-xl text-xs btn-blue-outline"
                   >
-                    Ver mis repositorios en GitHub →
+                    Ver código en GitHub →
                   </a>
                 </div>
               </div>
             </article>
           ))}
-        </div>
-
-        <div className="text-center mt-12 reveal">
-          <p className="text-white/30 text-sm mb-4" style={{ fontFamily: "'Inter', sans-serif" }}>
-            Continúo agregando nuevos proyectos a medida que avanzo en mi formación.
-          </p>
-          <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full glass-card-blue border border-blue-500/20">
-            <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
-            <span className="text-blue-300 text-xs font-medium" style={{ fontFamily: "'Inter', sans-serif" }}>
-              En constante construcción
-            </span>
-          </div>
         </div>
       </div>
     </section>
