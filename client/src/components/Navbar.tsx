@@ -1,6 +1,6 @@
 /*
  * NAVBAR — Aura Dusk Portfolio
- * Sticky nav con blur al hacer scroll, logo hexagonal, links con underline animado
+ * Sticky nav con blur al hacer scroll, logo tipográfico y navegación responsive
  */
 import { useState, useEffect } from "react";
 
@@ -21,8 +21,6 @@ export default function Navbar() {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
-
-      // Detect active section
       const sections = navLinks.map((l) => l.href.replace("#", ""));
       for (let i = sections.length - 1; i >= 0; i--) {
         const el = document.getElementById(sections[i]);
@@ -34,15 +32,14 @@ export default function Navbar() {
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const scrollTo = (href: string) => {
     const id = href.replace("#", "");
     const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
-    }
+    if (el) el.scrollIntoView({ behavior: "smooth" });
     setMenuOpen(false);
   };
 
@@ -55,29 +52,23 @@ export default function Navbar() {
       }`}
     >
       <div className="container">
-        <nav className="flex items-center justify-between h-16">
-          {/* Logo */}
+        <nav className="flex items-center justify-between h-16" aria-label="Navegación principal">
           <button
             onClick={() => scrollTo("#hero")}
             className="flex items-center gap-2.5 group"
+            aria-label="Ir al inicio"
           >
-            <div className="relative w-9 h-9">
-              <img
-                src="/manus-storage/logo-icon_72e96d52.png"
-                alt="Logo"
-                className="w-9 h-9 object-contain group-hover:scale-110 transition-transform duration-200"
-              />
+            <div className="w-9 h-9 rounded-xl border border-blue-500/30 bg-blue-500/10 flex items-center justify-center text-blue-300 font-black text-xs tracking-tight group-hover:border-amber-400/50 group-hover:text-amber-300 transition-colors duration-200">
+              JD
             </div>
             <span
               className="font-orbitron font-bold text-sm tracking-widest text-white/90 group-hover:text-blue-400 transition-colors duration-200"
               style={{ fontFamily: "'Orbitron', sans-serif" }}
             >
-              DEV
-              <span className="text-amber-400">.</span>
+              DEV<span className="text-amber-400">.</span>
             </span>
           </button>
 
-          {/* Desktop links */}
           <ul className="hidden md:flex items-center gap-7">
             {navLinks.map((link) => {
               const id = link.href.replace("#", "");
@@ -87,9 +78,7 @@ export default function Navbar() {
                   <button
                     onClick={() => scrollTo(link.href)}
                     className={`nav-link text-sm font-medium transition-colors duration-200 ${
-                      isActive
-                        ? "text-blue-400 active"
-                        : "text-white/60 hover:text-white/90"
+                      isActive ? "text-blue-400 active" : "text-white/60 hover:text-white/90"
                     }`}
                     style={{ fontFamily: "'Inter', sans-serif" }}
                   >
@@ -100,7 +89,6 @@ export default function Navbar() {
             })}
           </ul>
 
-          {/* CTA Button */}
           <button
             onClick={() => scrollTo("#contact")}
             className="hidden md:flex btn-gold px-4 py-2 rounded-lg text-sm"
@@ -109,31 +97,20 @@ export default function Navbar() {
             Contactar
           </button>
 
-          {/* Mobile hamburger */}
           <button
             className="md:hidden flex flex-col gap-1.5 p-2"
             onClick={() => setMenuOpen(!menuOpen)}
-            aria-label="Menú"
+            aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
+            aria-expanded={menuOpen}
           >
-            <span
-              className={`block w-5 h-0.5 bg-white/80 transition-all duration-200 ${menuOpen ? "rotate-45 translate-y-2" : ""}`}
-            />
-            <span
-              className={`block w-5 h-0.5 bg-white/80 transition-all duration-200 ${menuOpen ? "opacity-0" : ""}`}
-            />
-            <span
-              className={`block w-5 h-0.5 bg-white/80 transition-all duration-200 ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`}
-            />
+            <span className={`block w-5 h-0.5 bg-white/80 transition-all duration-200 ${menuOpen ? "rotate-45 translate-y-2" : ""}`} />
+            <span className={`block w-5 h-0.5 bg-white/80 transition-all duration-200 ${menuOpen ? "opacity-0" : ""}`} />
+            <span className={`block w-5 h-0.5 bg-white/80 transition-all duration-200 ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
           </button>
         </nav>
       </div>
 
-      {/* Mobile menu */}
-      <div
-        className={`md:hidden transition-all duration-300 overflow-hidden ${
-          menuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-        }`}
-      >
+      <div className={`md:hidden transition-all duration-300 overflow-hidden ${menuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}`}>
         <div className="bg-[#0a0e1a]/95 backdrop-blur-xl border-t border-blue-500/10 px-6 py-4 flex flex-col gap-4">
           {navLinks.map((link) => {
             const id = link.href.replace("#", "");
@@ -142,9 +119,7 @@ export default function Navbar() {
               <button
                 key={link.href}
                 onClick={() => scrollTo(link.href)}
-                className={`text-left text-sm font-medium transition-colors duration-200 ${
-                  isActive ? "text-blue-400" : "text-white/60"
-                }`}
+                className={`text-left text-sm font-medium transition-colors duration-200 ${isActive ? "text-blue-400" : "text-white/60"}`}
                 style={{ fontFamily: "'Inter', sans-serif" }}
               >
                 {link.label}
