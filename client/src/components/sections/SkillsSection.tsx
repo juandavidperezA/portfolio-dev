@@ -30,6 +30,8 @@ const mainSkills = [
 const otherSkills = [
   { name: "n8n", level: 65, icon: "⚙️", note: "Automatización de flujos" },
   { name: "MySQL", level: 60, icon: "🗄️", note: "Bases de datos y consultas" },
+  { name: "Python", level: 40, icon: "🐍", note: "Lógica y programación básica" },
+  { name: "PSeInt", level: 50, icon: "🧩", note: "Pseudocódigo y lógica" },
   { name: "Git / GitHub", level: 60, icon: "🐙", note: "Control de versiones" },
   { name: "Node.js", level: 30, icon: "🟢", note: "En aprendizaje" },
 ];
@@ -95,7 +97,7 @@ export default function SkillsSection() {
 
         <div className="reveal">
           <p className="text-white/30 text-xs uppercase tracking-widest mb-4 text-center">También trabajo con</p>
-          <div className="grid sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
             {otherSkills.map((skill, i) => (
               <div key={skill.name} className="glass-card rounded-xl p-5 border border-white/5 hover:border-blue-500/20 transition-all duration-300 group">
                 <div className="flex items-center justify-between mb-3">
@@ -109,7 +111,7 @@ export default function SkillsSection() {
                   <span className="text-white/30 text-xs">{skill.level}%</span>
                 </div>
                 <div className="h-1.5 bg-white/5 rounded-full overflow-hidden">
-                  <div className="h-full rounded-full transition-all duration-1000 ease-out" style={{ width: animated ? `${skill.level}%` : "0%", background: "linear-gradient(90deg, #1d4ed8, #3b82f6, #60a5fa)", boxShadow: "0 0 8px rgba(59, 130, 246, 0.5)", transitionDelay: `${i * 200 + 600}ms` }} />
+                  <div className="h-full rounded-full transition-all duration-1000 ease-out" style={{ width: animated ? `${skill.level}%` : "0%", background: "linear-gradient(90deg, #1d4ed8, #3b82f6, #60a5fa)", boxShadow: "0 0 8px rgba(59, 130, 246, 0.5)", transitionDelay: `${i * 150 + 600}ms` }} />
                 </div>
               </div>
             ))}
